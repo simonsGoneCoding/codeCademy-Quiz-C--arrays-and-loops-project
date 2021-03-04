@@ -48,10 +48,30 @@ namespace TrueOrFalse
                 askingIndex++;
             }
 
+            /* check responses
             foreach (bool response in responses)
             {
                 Console.WriteLine(response);
             }
+            */
+
+            /*----- Calculate Score ------*/
+            int scoringIndex = 0;
+            int score = 0; 
+
+            foreach (bool answer in answers)
+            {
+                bool response = responses[scoringIndex];
+                Console.WriteLine($"{scoringIndex + 1}. Input: {response} | Answer: {answer}");
+                if(response == answer)
+                {
+                    score++;
+                }
+                scoringIndex++;
+            }
+
+            Console.WriteLine($"You got {score} out of {questions.Length} correct!");
+
         }
     }
 }
